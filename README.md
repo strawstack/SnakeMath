@@ -2,6 +2,8 @@
 
 This `readme` covers everything you need to know to understand and start using SnakeMath. The goal of SnakeMath aligns with the simple goals that all snakes share: motivate computer science, and promote snake culture.
 
+![](./logo.png)
+
 `SnakeMath` uses postfix operator syntax, a stack, and a grid to render 5x5 characters. It's inspired by [the adventures of a scientist and his grandson](https://rickandmorty.fandom.com/wiki/Rattlestar_Ricklactica). For example, the following expression renders the letter `S`:
 
     S.u.(u.S).u.(Yo.Yu.Yccc).u.(Yo.Yu.Yc).Yo.Y@
