@@ -85,9 +85,14 @@ In this section, let `{1}` be the value on the top of the stack, and let `{2}` b
 - `(` and `)`: When an expression is enclosed in brackets. Pop {1} and repeat the enclosed expression a number of times equal to {1} before moving on to the rest of the expression.
 
 # SnakeMath Expressions
+    
+This expression causes five numbers to be pushed to the stack. 
 
-TODO - Give more examples of SnakeMath expressions
+    cu.su.S3.3.o.co
+    resulting stack: 8, 20, 29, 5, 0
 
 # Code in this Repo
 
-TODO - Explain the code in this repo and how to use it
+**examples.py**: Run this file with `python examples.py`. This file will run a few demo expression and print the output to the console.
+
+**SnakeMath.py**: This file is the implementation of SnakeMath. 
