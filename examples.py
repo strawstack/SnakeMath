@@ -23,7 +23,7 @@ e4 = "o.uo.(cu.(c.Y3))"
 _S = "S.u.(u.S).u.(Yo.Yccc).u.(Yo.Yc).Yo.@."
 _N = "S.Yccc.Yo.Yc.s.(c.Yoc.c.Yoccc).c.Yoc.c.Yocc.S.Yo.@."
 _A = "Yccc.s.(S.Yoc).Yc.u.Yoccc.s.Yo.@."
-_K = "Yccc.S.Yocc.u.(u.Yoccc).u.(c.Yoc.c.Yoccc).u.(c.Yccco).Yc.c.Yoccc.c.Yo.u.(c.Yoccc.c.Yoc).@"
+_K = "Yccc.S.Yocc.u.(u.Yoccc).u.(c.Yoc.c.Yoccc).u.(c.Yccco).Yc.c.Yoccc.c.Yo.u.(c.Yoccc.c.Yoc).@."
 _E = "s.(S.Yocc.S.Yoc.u.Yoc).@"
 e5 = _S + _N + _A + _K + _E
 

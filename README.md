@@ -32,11 +32,11 @@ Snakes like to `slither`, and snakes like to `share`, so, naturally, snakes have
 
 Snakes begin slithering in the lower-left cell of their nest and are facing right. SnakeMath expressions direct a snake to slither around their nest. Every cell in the nest that is touched gets tagged with `s`. In the diagram below, I use `>` to represent a snake that is facing to the right:
 
-    .....
-    .....
-    .....
-    .....
-    >....
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    > . . . .
 
 Let's evaluating the following SnakeMath expression:
 
@@ -44,11 +44,11 @@ Let's evaluating the following SnakeMath expression:
 
 This expression causes the snake to travel around its nest. The resulting path looks like this:
 
-    ssss>
-    s....
-    sssss
-    ....s
-    sssss
+    s s s s >
+    s . . . .
+    s s s s s
+    . . . . s
+    s s s s s
 
 The expression has finished evaluating and the snakes path has the shape of a letter `S`. As we will see below, the operator `@` causes the grid to be saved as one character of output. If the expression were longer, more characters could be saved and output by the expression.
 
@@ -98,6 +98,16 @@ This expression causes five numbers to be pushed to the stack.
 
     cu.su.S3.3.o.co
     resulting stack: 8, 20, 29, 5, 0
+
+This expression causes the letter `S` to be drawn to the nest.
+
+    S.u.(u.S).u.(Yo.Yccc).u.(Yo.Yc).Yo.@
+    resulting nest:
+    s s s s s
+    s . . . .
+    s s s s s
+    . . . . s
+    s s s s s
 
 # Code in this Repo
 
