@@ -50,7 +50,7 @@ This expression causes the snake to travel around its nest. The resulting path l
     ....s
     sssss
 
-The expression has finished evaluating and the snakes path has the shape of a letter `S`. As we will see below, the operator `@` causes the grid to be printed/saved as one character of output. If the expression were longer, more characters could be drawn and printed.
+The expression has finished evaluating and the snakes path has the shape of a letter `S`. As we will see below, the operator `@` causes the grid to be saved as one character of output. If the expression were longer, more characters could be saved and output by the expression.
 
 ## Integers
 
@@ -68,27 +68,27 @@ The expression has finished evaluating and the snakes path has the shape of a le
 
 In this section, let `{1}` be the value on the top of the stack, and let `{2}` be the value under {1}.
 
-- `o`: Move forward by value of {1}.
+- `o`: Pop {1}, and move forward by value of {1}.
 
 - `c`: Turn clockwise.
 
-- `u`: Pop {1}.
+- `u`: Copy {1} and push copy to stack.
 
-- `s`: Skip over a number of grid cells equal to {1} without effecting them.
+- `s`: Pop and `multiply` {1} and {2} then push result.
 
 - `S`: Pop and `subtract` {1} and {2} then push result.
 
 - `3`: Pop and `add` {1} and {2} then push result.
 
-- `@`: Save or print the current state of the 5x5 grid, and clear the grid.
+- `@`: Save the current state of the 5x5 grid, and clear the grid.
 
 ## Brackets
 
 - `(` and `)`: When an expression is enclosed in brackets. Pop {1} and repeat the enclosed expression a number of times equal to {1} before moving on to the rest of the expression.
 
 # SnakeMath Expressions
-    
-This expression causes five numbers to be pushed to the stack. 
+
+This expression causes five numbers to be pushed to the stack.
 
     cu.su.S3.3.o.co
     resulting stack: 8, 20, 29, 5, 0
@@ -98,3 +98,8 @@ This expression causes five numbers to be pushed to the stack.
 **examples.py**: Run this file with `python examples.py`. This file will run some demo expressions, and print the output to the console.
 
 **SnakeMath.py**: This file is the python implementation of SnakeMath.
+
+# Dev Notes
+
+- [ ] Implement nested bracket.
+    - [ ] If bracket encountered inside bracket then push new bracket index to a stack

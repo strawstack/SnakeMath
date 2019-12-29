@@ -9,6 +9,7 @@ class SnakeMath:
         self.nest = []
         for _ in range(5):
             self.nest.append(['.' for _ in range(5)])
+        self.nest[4][0] = "s"
 
         # Symbols
         self.sep = "."
@@ -24,6 +25,14 @@ class SnakeMath:
         self.bracket_index = 0
         self.bracket_value = 0
         self.cur = []
+        self.pos = [4, 0] # row, column
+        self.facing = 1 # 0 - up, 1 - right, 2 - down, 3 - left
+        self.move = {
+            0: [-1, 0],
+            1: [0, 1],
+            2: [1, 0],
+            3: [0, -1]
+        }
 
         self.value = {
             "o": 0,
@@ -60,12 +69,14 @@ class SnakeMath:
         self.nest.clear()
         for _ in range(5):
             self.nest.append(['.' for _ in range(5)])
+        self.nest[4][0] = "s"
 
     def eval(self, exp):
         self._clear_state()
-
         i = 0
         while i < len(exp):
+            if self.D: print("stack:", self.stack, end=", ")
+            if self.D: print("cur:", self.cur)
             c = exp[i]
             if self.D: print("c:", c)
 
@@ -83,10 +94,16 @@ class SnakeMath:
                     if self.D: print("  open bracket")
                     self.in_bracket = True
                     self.bracket_index = i + 1
-                    self.bracket_value = self.stack.pop()
+                    self.bracket_value = self.stack.pop() - 1
+                    i += 1
 
                 else: # )
                     if self.D: print("  close bracket")
+
+                    if len(self.cur) > 0:
+                        self.stack.append(self._base10(self.cur))
+                        self.cur.clear()
+
                     if self.bracket_value > 0:
                         self.bracket_value -= 1
                         i = self.bracket_index
@@ -103,6 +120,43 @@ class SnakeMath:
                 self.nests.append(self._copyAndClear(self.nest))
                 i += 1
 
+            elif self.in_function and (c in self.integer):
+                if self.D: print("in_function and function")
+
+                if c == "o":
+                    value = self.stack.pop()
+                    m = self.move[self.facing]
+                    for _ in range(value):
+                        nr = self.pos[0] + m[0]
+                        nc = self.pos[1] + m[1]
+                        if nr >= 0 and nr < 5 and nc >= 0 and nc < 5:
+                            self.pos[0] = nr
+                            self.pos[1] = nc
+                            self.nest[nr][nc] = "s"
+
+                elif c == "c":
+                    self.facing = (self.facing + 1) % 4
+
+                elif c == "u":
+                    self.stack.append(self.stack[-1])
+
+                elif c == "s":
+                    v1 = self.stack.pop()
+                    v2 = self.stack.pop()
+                    self.stack.append(v2 * v1)
+
+                elif c == "S":
+                    v1 = self.stack.pop()
+                    v2 = self.stack.pop()
+                    self.stack.append(v2 - v1)
+
+                elif c == "3":
+                    v1 = self.stack.pop()
+                    v2 = self.stack.pop()
+                    self.stack.append(v2 + v1)
+
+                i += 1
+
             elif c in self.integer:
                 if self.D: print("integer")
                 self.cur.append(c)
@@ -115,7 +169,7 @@ class SnakeMath:
 
     def show(self):
         SIZE = 5
-        print("OUTPUT")
+        print("\nOUTPUT")
         for r in range(SIZE):
             for nest in self.nests:
                 nx = " ".join(nest[r]).replace(".", " ")
@@ -123,4 +177,4 @@ class SnakeMath:
             print("")
 
     def show_stack(self):
-        print("STACK:", ", ".join([str(x) for x in self.stack]))
+        print("\nSTACK:", ", ".join([str(x) for x in self.stack]))
