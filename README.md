@@ -94,10 +94,10 @@ In this section, let `{1}` be the value on the top of the stack, and let `{2}` b
 
 # SnakeMath Expressions
 
-This expression causes five numbers to be pushed to the stack.
+This expression causes six numbers to be pushed to the stack.
 
-    cu.su.S3.3.o.co
-    resulting stack: 8, 20, 29, 5, 0
+    cu.su.S3.3.o.co.
+    resulting stack: 8, 20, 29, 5, 0, 6
 
 This expression causes the letter `S` to be drawn to the nest.
 
