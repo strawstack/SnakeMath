@@ -1,3 +1,5 @@
+# SnakeMath
+
 ![](./logo.png)
 
 This `readme` covers everything you need to know to understand and start using SnakeMath. The goal of SnakeMath aligns with the simple goals all snakes share: `motivate computer science`, and `promote snake culture`.
