@@ -6,7 +6,7 @@ This `readme` covers everything you need to know to understand and start using S
 
 `SnakeMath` uses postfix operator syntax, a stack, and a grid to render 5x5 characters. It's inspired by [the adventures of a scientist and his grandson](https://rickandmorty.fandom.com/wiki/Rattlestar_Ricklactica). For example, the following expression renders the letter `S`:
 
-    S.u.(u.S).u.(Yo.Yu.Yccc).u.(Yo.Yu.Yc).Yo.Y@
+    S.u.(u.S).u.(Yo.Yccc).u.(Yo.Yc).Yo.@
 
 # Understanding SnakeMath
 
@@ -40,7 +40,7 @@ Snakes begin slithering in the lower-left cell of their nest and are facing righ
 
 Let's evaluating the following SnakeMath expression:
 
-    S.u.(u.S).u.(Yo.Yu.Yccc).u.(Yo.Yu.Yc).Yo.Y@
+    S.u.(u.S).u.(Yo.Yccc).u.(Yo.Yc).Yo.@
 
 This expression causes the snake to travel around its nest. The resulting path looks like this:
 
@@ -51,6 +51,12 @@ This expression causes the snake to travel around its nest. The resulting path l
     sssss
 
 The expression has finished evaluating and the snakes path has the shape of a letter `S`. As we will see below, the operator `@` causes the grid to be saved as one character of output. If the expression were longer, more characters could be saved and output by the expression.
+
+We don't always have to draw something. As a second example, lets use nested brackets to multiply two numbers without using the build-it multiply operator.
+
+    o.uo.(cu.(c.Y3))
+
+This expression has two `embedded` arguments in this example we are multiplying `uo` with `cu` which are in base6; in base10, these numbers are 12 and 8 respectively. After evaluating this expression, we can find the answer as the only element on the stack: 96.
 
 ## Integers
 
