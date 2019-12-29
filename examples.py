@@ -7,8 +7,8 @@ from SnakeMath import SnakeMath
 # Draw letter S to the nest
 e1 = "S.u.(u.S).u.(Yo.Yccc).u.(Yo.Yc).Yo.@"
 
-# Push 8, 20, 29, 5, 0 to the stack
-e2 = "cu.su.S3.3.o.co"
+# Push 8, 20, 29, 5, 0, 6 to the stack
+e2 = "cu.su.S3.3.o.co."
 
 # Factorial n, answer pushed to stack
 #args   n
