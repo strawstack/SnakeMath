@@ -95,6 +95,6 @@ This expression causes five numbers to be pushed to the stack.
 
 # Code in this Repo
 
-**examples.py**: Run this file with `python examples.py`. This file will run a few demo expression and print the output to the console.
+**examples.py**: Run this file with `python examples.py`. This file will run some demo expressions, and print the output to the console.
 
-**SnakeMath.py**: This file is the implementation of SnakeMath. 
+**SnakeMath.py**: This file is the python implementation of SnakeMath.
