@@ -22,8 +22,8 @@ class SnakeMath:
 
         # State
         self.in_function  = False
-        self.bracket_index = 0
-        self.bracket_value = 0
+        self.bracket_index = []
+        self.bracket_value = []
         self.cur = []
         self.pos = [4, 0] # row, column
         self.facing = 1 # 0 - up, 1 - right, 2 - down, 3 - left
@@ -57,12 +57,15 @@ class SnakeMath:
             new_nest.append(row[:])
             for j, cell in enumerate(nest[r]):
                 nest[r][j] = "."
+        self.pos = [4, 0] # row, column
+        self.facing = 1
+        new_nest[4][0] = "s"
         return new_nest
 
     def _clear_state(self):
         self.in_function = False
-        self.bracket_index = 0
-        self.bracket_value = 0
+        self.bracket_index = []
+        self.bracket_value = []
         self.cur.clear()
         self.nests.clear()
         self.stack.clear()
@@ -93,21 +96,24 @@ class SnakeMath:
                 if c in self.open_bracket: # (
                     if self.D: print("  open bracket")
                     self.in_bracket = True
-                    self.bracket_index = i + 1
-                    self.bracket_value = self.stack.pop() - 1
+                    self.bracket_index.append(i + 1)
+                    self.bracket_value.append(self.stack.pop() - 1)
                     i += 1
 
                 else: # )
                     if self.D: print("  close bracket")
+                    self.in_function = False
 
                     if len(self.cur) > 0:
                         self.stack.append(self._base10(self.cur))
                         self.cur.clear()
 
-                    if self.bracket_value > 0:
-                        self.bracket_value -= 1
-                        i = self.bracket_index
+                    if self.bracket_value[-1] > 0:
+                        self.bracket_value[-1] -= 1
+                        i = self.bracket_index[-1]
                     else:
+                        self.bracket_index.pop()
+                        self.bracket_value.pop()
                         i += 1
 
             elif c in self.function:

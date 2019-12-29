@@ -99,7 +99,8 @@ This expression causes five numbers to be pushed to the stack.
 
 **SnakeMath.py**: This file is the python implementation of SnakeMath.
 
-# Dev Notes
-
-- [ ] Implement nested bracket.
-    - [ ] If bracket encountered inside bracket then push new bracket index to a stack
+    s s s s s s s     s s s s s s s     s s s s s s s
+    s         s s s   s s       s s   s s   s        
+    s s s s s s   s s s s s s s s s s s     s s s s s
+            s s     s s s       s s   s s   s        
+    s s s s s s       s s       s s     s s s s s s s
